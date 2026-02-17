@@ -14,32 +14,28 @@
         }
         
         body {
-            background-image: url('https://wallpaperm.cmcm.com/398f4912b45260cca24eb3ec9b37e711.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+            background-color: #f5f7fa;
             color: #333;
-            min-height: 100vh;
-            display: flex;
             line-height: 1.6;
+            display: flex;
+            min-height: 100vh;
         }
         
-        /* 左侧导航栏 */
+        /* 左侧导览栏 */
         .sidebar {
-            width: 250px;
-            background-color: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-            padding: 40px 25px;
-            box-shadow: 5px 0 25px rgba(0, 0, 0, 0.08);
-            display: flex;
-            flex-direction: column;
-            position: sticky;
+            width: 280px;
+            background-color: #f8f9fa;
+            border-right: 1px solid #eaeaea;
+            padding: 40px 0;
+            position: fixed;
             top: 0;
-            height: 100vh;
+            left: 0;
+            bottom: 0;
             overflow-y: auto;
         }
         
-        .blog-header {
+        .blog-info {
+            padding: 0 25px;
             margin-bottom: 40px;
             text-align: center;
         }
@@ -49,33 +45,32 @@
             font-weight: 700;
             color: #2c3e50;
             margin-bottom: 10px;
-            line-height: 1.3;
         }
         
         .blog-subtitle {
-            font-size: 14px;
+            font-size: 16px;
             color: #7f8c8d;
-            font-weight: 500;
+            font-weight: 400;
         }
         
         .nav-menu {
             list-style: none;
-            flex-grow: 1;
+            padding: 0 20px;
         }
         
         .nav-menu li {
-            margin-bottom: 12px;
+            margin-bottom: 5px;
         }
         
         .nav-menu a {
             display: flex;
             align-items: center;
-            padding: 14px 18px;
-            color: #34495e;
+            padding: 15px 20px;
+            color: #5d6d7e;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all 0.3s ease;
-            font-weight: 600;
+            font-weight: 500;
         }
         
         .nav-menu a i {
@@ -86,74 +81,81 @@
         }
         
         .nav-menu a:hover {
-            background-color: #3498db;
-            color: white;
-            transform: translateX(5px);
+            background-color: #eef5ff;
+            color: #3498db;
         }
         
         .nav-menu a.active {
-            background-color: #2c3e50;
+            background-color: #3498db;
             color: white;
+            font-weight: 600;
         }
         
         .sidebar-footer {
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            margin-top: 20px;
+            padding: 25px;
+            margin-top: 40px;
+            border-top: 1px solid #eaeaea;
         }
         
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
+        .sidebar-footer p {
+            color: #7f8c8d;
+            font-size: 14px;
+            text-align: center;
         }
         
-        .social-links a {
+        /* 右侧内容区 */
+        .main-content {
+            flex: 1;
+            margin-left: 280px;
+            background-color: white;
+            min-height: 100vh;
+        }
+        
+        /* 顶部横幅 */
+        .banner {
+            width: 100%;
+            height: 400px;
+            background-image: url('https://wallpaperm.cmcm.com/398f4912b45260cca24eb3ec9b37e711.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2), rgba(0,0,0,0.6));
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: #3498db;
+        }
+        
+        .banner-content {
+            text-align: center;
             color: white;
-            border-radius: 50%;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            max-width: 700px;
+            padding: 0 20px;
         }
         
-        .social-links a:hover {
-            background-color: #2c3e50;
-            transform: translateY(-3px);
-        }
-        
-        /* 主内容区 */
-        .main-content {
-            flex: 1;
-            padding: 40px 60px;
-            background-color: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(5px);
-            overflow-y: auto;
-            max-height: 100vh;
-        }
-        
-        .welcome-section {
-            margin-bottom: 50px;
-        }
-        
-        .welcome-title {
-            font-size: 36px;
-            color: #2c3e50;
+        .banner-content h1 {
+            font-size: 42px;
             margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.5);
         }
         
-        .welcome-text {
+        .banner-content p {
             font-size: 18px;
-            color: #555;
-            max-width: 800px;
+            opacity: 0.9;
         }
         
-        .posts-section {
-            margin-top: 40px;
+        /* 文章列表容器 */
+        .posts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 40px;
         }
         
         .section-title {
@@ -162,28 +164,28 @@
             margin-bottom: 30px;
             padding-bottom: 15px;
             border-bottom: 3px solid #3498db;
-            display: inline-block;
         }
         
+        /* 文章网格布局 */
         .posts-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            margin-top: 30px;
         }
         
+        /* 文章卡片 */
         .post-card {
-            background-color: white;
-            border-radius: 15px;
+            background-color: #ffffff;
+            border-radius: 10px;
             padding: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f0f0f0;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         .post-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         }
         
         .post-category {
@@ -248,88 +250,118 @@
             transform: translateX(5px);
         }
         
+        /* 右侧边栏 */
+        .right-sidebar {
+            width: 300px;
+            background-color: #f8f9fa;
+            border-left: 1px solid #eaeaea;
+            padding: 40px 25px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+        
+        .widget {
+            margin-bottom: 40px;
+        }
+        
+        .widget-title {
+            font-size: 20px;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tag {
+            background-color: #eef5ff;
+            color: #3498db;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .recent-posts {
+            list-style: none;
+        }
+        
+        .recent-posts li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .recent-posts li:last-child {
+            border-bottom: none;
+        }
+        
+        .recent-posts a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .recent-posts a:hover {
+            color: #3498db;
+        }
+        
+        .recent-date {
+            color: #7f8c8d;
+            font-size: 13px;
+        }
+        
         /* 响应式设计 */
-        @media (max-width: 1024px) {
-            .sidebar {
-                width: 220px;
-                padding: 30px 20px;
-            }
-            
-            .main-content {
-                padding: 30px 40px;
+        @media (max-width: 1200px) {
+            .right-sidebar {
+                display: none;
             }
         }
         
-        @media (max-width: 768px) {
-            body {
-                flex-direction: column;
-            }
-            
-            .sidebar {
-                width: 100%;
-                height: auto;
-                position: relative;
-                padding: 20px;
-                flex-direction: row;
-                flex-wrap: wrap;
-                justify-content: space-between;
-            }
-            
-            .blog-header {
-                width: 100%;
-                margin-bottom: 20px;
-            }
-            
-            .nav-menu {
-                width: 100%;
-                display: flex;
-                flex-wrap: wrap;
-                gap: 10px;
-                justify-content: center;
-            }
-            
-            .nav-menu li {
-                margin-bottom: 0;
-            }
-            
-            .nav-menu a {
-                padding: 10px 15px;
-            }
-            
-            .sidebar-footer {
-                width: 100%;
-                margin-top: 20px;
-            }
-            
-            .main-content {
-                padding: 30px 20px;
-                max-height: none;
-            }
-            
+        @media (max-width: 992px) {
             .posts-grid {
                 grid-template-columns: 1fr;
             }
         }
         
-        @media (max-width: 480px) {
-            .welcome-title {
-                font-size: 28px;
-            }
-            
-            .welcome-text {
-                font-size: 16px;
-            }
-            
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .post-card {
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
                 padding: 20px;
             }
             
-            .post-title {
-                font-size: 20px;
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .banner {
+                height: 300px;
+            }
+            
+            .banner-content h1 {
+                font-size: 32px;
+            }
+            
+            .posts-container {
+                padding: 30px 20px;
             }
         }
         
@@ -339,7 +371,7 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
+            background: #f1f1f1;
         }
         
         ::-webkit-scrollbar-thumb {
@@ -350,14 +382,49 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #2980b9;
         }
+        
+        /* 页脚 */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
-    <!-- 左侧导航栏 -->
+    <!-- 左侧导览栏 -->
     <aside class="sidebar">
-        <div class="blog-header">
+        <div class="blog-info">
             <h1 class="blog-title">风吹日晓</h1>
-            <p class="blog-subtitle">个人博客 & 技术分享</p>
+            <p class="blog-subtitle">探索技术与生活之美</p>
         </div>
         
         <ul class="nav-menu">
@@ -366,63 +433,33 @@
             <li><a href="#"><i class="fas fa-folder"></i> 分类</a></li>
             <li><a href="#"><i class="fas fa-user"></i> 关于</a></li>
             <li><a href="#"><i class="fas fa-envelope"></i> 联系</a></li>
-            <li><a href="#"><i class="fas fa-tags"></i> 标签</a></li>
-            <li><a href="#"><i class="fas fa-archive"></i> 归档</a></li>
             <li><a href="#"><i class="fas fa-search"></i> 搜索</a></li>
         </ul>
         
         <div class="sidebar-footer">
-            <div class="social-links">
-                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
-                <a href="#" title="知乎"><i class="fab fa-zhihu"></i></a>
-                <a href="#" title="邮箱"><i class="fas fa-envelope"></i></a>
-            </div>
+            <p>© 2023 风吹日晓的个人博客</p>
+            <p>记录思考，分享知识</p>
         </div>
     </aside>
     
-    <!-- 主内容区 -->
+    <!-- 右侧内容区 -->
     <main class="main-content">
-        <section class="welcome-section">
-            <h1 class="welcome-title">欢迎来到我的个人空间</h1>
-            <p class="welcome-text">
-                我是风吹日晓，一名热爱技术与分享的开发者。这里记录了我的学习历程、技术心得和生活感悟。我相信代码可以改变世界，而分享则能让知识传递更远。在这个快速变化的数字时代，我希望通过这个博客与志同道合的朋友们交流、学习、共同成长。
-            </p>
-        </section>
+        <!-- 顶部横幅 -->
+        <div class="banner">
+            <div class="banner-overlay">
+                <div class="banner-content">
+                    <h1>欢迎来到我的个人博客</h1>
+                    <p>在这里，我将分享技术见解、生活感悟与学习心得，与你一同探索这个充满可能性的世界</p>
+                </div>
+            </div>
+        </div>
         
-        <section class="posts-section">
+        <!-- 文章列表 -->
+        <div class="posts-container">
             <h2 class="section-title">最新文章</h2>
             
             <div class="posts-grid">
-                <!-- 文章1 -->
-                <article class="post-card">
-                    <span class="post-category">前端开发</span>
-                    <h3 class="post-title">探索CSS Grid布局的无限可能</h3>
-                    <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年10月20日</span>
-                        <span><i class="far fa-eye"></i> 1.2k浏览</span>
-                    </div>
-                    <p class="post-excerpt">
-                        CSS Grid布局是现代网页设计的强大工具。通过灵活的网格系统，我们可以创建复杂且响应式的布局，而无需依赖外部框架。本文将深入探讨Grid的高级用法和实际案例。
-                    </p>
-                    <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
-                </article>
-                
-                <!-- 文章2 -->
-                <article class="post-card">
-                    <span class="post-category">JavaScript</span>
-                    <h3 class="post-title">ES2023新特性详解与应用实践</h3>
-                    <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年10月15日</span>
-                        <span><i class="far fa-eye"></i> 2.1k浏览</span>
-                    </div>
-                    <p class="post-excerpt">
-                        每年ECMAScript都会带来新的语言特性，ES2023也不例外。从数组查找方法到符号作为WeakMap键，这些新特性让JavaScript更加强大和易用。让我们一起来看看这些新特性如何提升开发效率。
-                    </p>
-                    <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
-                </article>
-                
-                <!-- 文章3 -->
+                <!-- 左栏文章1 -->
                 <article class="post-card">
                     <span class="post-category">算法与数据结构</span>
                     <h3 class="post-title">动态规划实战：解决经典背包问题</h3>
@@ -436,7 +473,7 @@
                     <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
                 </article>
                 
-                <!-- 文章4 -->
+                <!-- 右栏文章1 -->
                 <article class="post-card">
                     <span class="post-category">生活随笔</span>
                     <h3 class="post-title">保持学习动力的五个有效方法</h3>
@@ -450,36 +487,97 @@
                     <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
                 </article>
                 
-                <!-- 文章5 -->
+                <!-- 左栏文章2 -->
                 <article class="post-card">
-                    <span class="post-category">工具推荐</span>
-                    <h3 class="post-title">2023年开发者必备的十个VS Code插件</h3>
+                    <span class="post-category">前端开发</span>
+                    <h3 class="post-title">探索CSS Grid布局的无限可能</h3>
                     <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年9月28日</span>
-                        <span><i class="far fa-eye"></i> 3.2k浏览</span>
+                        <span><i class="far fa-calendar"></i> 2023年10月15日</span>
+                        <span><i class="far fa-eye"></i> 2.1k浏览</span>
                     </div>
                     <p class="post-excerpt">
-                        Visual Studio Code是当今最受欢迎的代码编辑器之一，其强大的插件生态系统是它成功的关键。本文将介绍十个能够极大提升开发效率的VS Code插件，涵盖代码质量、Git集成、主题美化等方面。
+                        CSS Grid布局是现代网页设计的强大工具。通过灵活的网格系统，我们可以创建复杂且响应式的布局，而无需依赖外部框架。本文将深入探讨Grid的高级用法和实际案例。
                     </p>
                     <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
                 </article>
                 
-                <!-- 文章6 -->
+                <!-- 右栏文章2 -->
                 <article class="post-card">
-                    <span class="post-category">性能优化</span>
-                    <h3 class="post-title">现代前端性能优化策略全解析</h3>
+                    <span class="post-category">JavaScript</span>
+                    <h3 class="post-title">ES2023新特性详解与应用实践</h3>
                     <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年9月20日</span>
+                        <span><i class="far fa-calendar"></i> 2023年10月12日</span>
                         <span><i class="far fa-eye"></i> 2.5k浏览</span>
                     </div>
                     <p class="post-excerpt">
-                        在用户体验至上的今天，前端性能优化变得尤为重要。本文将从加载优化、渲染优化、资源优化等多个维度，系统性地介绍现代前端性能优化的最新策略和最佳实践。
+                        每年ECMAScript都会带来新的语言特性，ES2023也不例外。从数组查找方法到符号作为WeakMap键，这些新特性让JavaScript更加强大和易用。让我们一起来看看这些新特性如何提升开发效率。
                     </p>
                     <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
                 </article>
             </div>
-        </section>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#">关于本站</a>
+                    <a href="#">友情链接</a>
+                    <a href="#">隐私政策</a>
+                    <a href="#">版权声明</a>
+                </div>
+                <p class="copyright">© 2023 风吹日晓的个人博客 | 保留所有权利</p>
+            </div>
+        </footer>
     </main>
+    
+    <!-- 右侧边栏（标签、最近文章等） -->
+    <aside class="right-sidebar">
+        <div class="widget">
+            <h3 class="widget-title">热门标签</h3>
+            <div class="tags">
+                <a href="#" class="tag">JavaScript</a>
+                <a href="#" class="tag">CSS</a>
+                <a href="#" class="tag">算法</a>
+                <a href="#" class="tag">前端开发</a>
+                <a href="#" class="tag">数据结构</a>
+                <a href="#" class="tag">生活随笔</a>
+                <a href="#" class="tag">性能优化</a>
+                <a href="#" class="tag">Web开发</a>
+            </div>
+        </div>
+        
+        <div class="widget">
+            <h3 class="widget-title">最近文章</h3>
+            <ul class="recent-posts">
+                <li>
+                    <a href="#">动态规划实战：解决经典背包问题</a>
+                    <div class="recent-date">2023年10月10日</div>
+                </li>
+                <li>
+                    <a href="#">保持学习动力的五个有效方法</a>
+                    <div class="recent-date">2023年10月5日</div>
+                </li>
+                <li>
+                    <a href="#">探索CSS Grid布局的无限可能</a>
+                    <div class="recent-date">2023年10月15日</div>
+                </li>
+                <li>
+                    <a href="#">ES2023新特性详解与应用实践</a>
+                    <div class="recent-date">2023年10月12日</div>
+                </li>
+                <li>
+                    <a href="#">现代前端性能优化策略全解析</a>
+                    <div class="recent-date">2023年9月28日</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="widget">
+            <h3 class="widget-title">关于我</h3>
+            <p>我是风吹日晓，一名热爱技术与生活的开发者。在这里记录我的学习历程与思考，希望能与志同道合的朋友交流分享。</p>
+        </div>
+    </aside>
 
     <script>
         // 简单的交互效果
@@ -489,27 +587,41 @@
             
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
+                    // 阻止默认跳转行为（因为是单页示例）
+                    e.preventDefault();
+                    
                     // 移除所有active类
                     navLinks.forEach(item => item.classList.remove('active'));
+                    
                     // 为当前点击的链接添加active类
                     this.classList.add('active');
+                    
+                    // 简单模拟内容切换（在实际项目中，这里可以加载不同的内容）
+                    const pageTitle = this.querySelector('i').nextSibling.textContent.trim();
+                    document.querySelector('.banner-content h1').textContent = `欢迎来到${pageTitle}页面`;
                 });
             });
             
-            // 文章卡片动画延迟
+            // 文章卡片动画效果
             const postCards = document.querySelectorAll('.post-card');
             postCards.forEach((card, index) => {
-                card.style.animationDelay = `${index * 0.1}s`;
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + index * 100);
             });
             
-            // 页面加载时的简单动画
+            // 页面加载动画
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
-            
-            // 初始透明度设置为0，然后淡入
-            document.body.style.opacity = '0';
-            document.body.style.transition = 'opacity 0.5s ease';
         });
     </script>
 </body>

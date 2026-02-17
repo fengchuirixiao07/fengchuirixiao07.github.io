@@ -176,7 +176,7 @@
             border-bottom: 3px solid #3498db;
         }
         
-        /* 文章链接卡片 - 现在作为超链接 */
+        /* 文章链接卡片 */
         .post-link-card {
             background-color: #ffffff;
             border-radius: 10px;
@@ -231,8 +231,14 @@
         }
         
         .post-link-meta {
-            color: #3498db;
+            color: #7f8c8d;
             font-size: 14px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .post-link-meta span {
+            margin-right: 20px;
             display: flex;
             align-items: center;
         }
@@ -377,26 +383,6 @@
             color: #aaa;
             font-size: 14px;
         }
-        
-        /* 添加访问提示样式 */
-        .access-tip {
-            background-color: #e8f4fc;
-            border-left: 4px solid #3498db;
-            padding: 15px 20px;
-            margin-bottom: 30px;
-            border-radius: 0 8px 8px 0;
-            color: #2c3e50;
-        }
-        
-        .access-tip p {
-            margin: 0;
-            font-size: 15px;
-        }
-        
-        .access-tip i {
-            margin-right: 10px;
-            color: #3498db;
-        }
     </style>
 </head>
 <body>
@@ -429,4 +415,122 @@
             <div class="banner-overlay">
                 <div class="banner-content">
                     <h1>欢迎来到我的个人博客</h1>
-                    <p>在这里，我将分享技术见解、生活感悟与学习心得，与你一同探索
+                    <p>在这里，我将分享技术见解、生活感悟与学习心得，与你一同探索的世界</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 文章列表 -->
+        <div class="posts-container" id="postsContainer">
+            <h2 class="section-title">文章列表</h2>
+            
+            <!-- 文章卡片示例（根据图片中的示例） -->
+            <a href="https://fengchuirixiao07.github.io/basic%20crypto" class="post-link-card">
+                <div class="post-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="post-link-content">
+                    <h3 class="post-link-title">start basic crypto</h3>
+                    <p class="post-link-description">这篇文档系统性地介绍了基础密码学知识，涵盖RSA加密原理、共享素数攻击、中国剩余定理、小明文攻击、费马小定理及其应用、dp泄露攻击、线性同余生成器(LCG)以及椭圆曲线数字签名算法(ECDSA)等内容。</p>
+                    <div class="post-link-meta">
+                        <span><i class="far fa-user"></i> 风吹日晓</span>
+                        <span><i class="far fa-calendar"></i> 2026年2月15日</span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- 第二篇文章卡片 -->
+            <a href="https://fengchuirixiao07.github.io/three%20week" class="post-link-card">
+                <div class="post-icon">
+                    <i class="fas fa-calendar-week"></i>
+                </div>
+                <div class="post-link-content">
+                    <h3 class="post-link-title">第三周周报</h3>
+                    <p class="post-link-description">这是第三周的学习周报，记录了本周的学习进展、技术实践、遇到的问题及解决方案，以及对下一周学习计划的安排。</p>
+                    <div class="post-link-meta">
+                        <span><i class="far fa-user"></i> 风吹日晓</span>
+                        <span><i class="far fa-calendar"></i> 2026年2月10日</span>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- 示例文章卡片（根据图片中的示例） -->
+            <a href="#" class="post-link-card">
+                <div class="post-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="post-link-content">
+                    <h3 class="post-link-title">这里是文章标题</h3>
+                    <p class="post-link-description">这里是文章的描述内容，简要介绍文章的主要内容和亮点，吸引读者点击阅读全文。这里可以放置一段较长的描述文字，展示文章的概要信息。</p>
+                    <div class="post-link-meta">
+                        <span><i class="far fa-user"></i> 作者名</span>
+                        <span><i class="far fa-calendar"></i> 发布日期</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="https://github.com/fengchuirixiao07" target="_blank">GitHub</a>
+                    <a href="https://fengchuirixiao07.github.io/" target="_blank">博客主页</a>
+                    <a href="#">友情链接</a>
+                    <a href="#">版权声明</a>
+                </div>
+                <p class="copyright">© 2026 风吹日晓的个人博客 | 保留所有权利</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        // 页面加载时的初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            // 导航菜单交互
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // 移除所有active类
+                    navLinks.forEach(item => item.classList.remove('active'));
+                    
+                    // 为当前点击的链接添加active类
+                    this.classList.add('active');
+                    
+                    // 更新横幅标题
+                    const pageTitle = this.querySelector('i').nextSibling.textContent.trim();
+                    const bannerTitle = document.querySelector('.banner-content h1');
+                    
+                    if (pageTitle === "首页") {
+                        bannerTitle.textContent = "欢迎来到我的个人博客";
+                    } else {
+                        bannerTitle.textContent = `欢迎来到${pageTitle}页面`;
+                    }
+                });
+            });
+            
+            // 文章卡片动画效果
+            const postCards = document.querySelectorAll('.post-link-card');
+            postCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100 + index * 100);
+            });
+            
+            // 页面加载动画
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+</html>

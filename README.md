@@ -21,62 +21,68 @@
             min-height: 100vh;
         }
         
-        /* 左侧导览栏 */
+        /* 左侧导览栏 - 拉长版本 */
         .sidebar {
-            width: 280px;
+            width: 320px; /* 增加宽度 */
             background-color: #f8f9fa;
             border-right: 1px solid #eaeaea;
-            padding: 40px 0;
+            padding: 50px 0; /* 增加上下内边距 */
             position: fixed;
             top: 0;
             left: 0;
             bottom: 0;
             overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
         
         .blog-info {
-            padding: 0 25px;
-            margin-bottom: 40px;
+            padding: 0 35px; /* 增加左右内边距 */
+            margin-bottom: 60px; /* 增加下边距 */
             text-align: center;
         }
         
         .blog-title {
-            font-size: 28px;
+            font-size: 32px; /* 增加字体大小 */
             font-weight: 700;
             color: #2c3e50;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
         
         .blog-subtitle {
-            font-size: 16px;
+            font-size: 18px; /* 增加字体大小 */
             color: #7f8c8d;
             font-weight: 400;
+            line-height: 1.5;
         }
         
         .nav-menu {
             list-style: none;
-            padding: 0 20px;
+            padding: 0 30px; /* 增加左右内边距 */
+            flex-grow: 1;
         }
         
         .nav-menu li {
-            margin-bottom: 5px;
+            margin-bottom: 10px; /* 增加间距 */
         }
         
         .nav-menu a {
             display: flex;
             align-items: center;
-            padding: 15px 20px;
+            padding: 18px 25px; /* 增加内边距 */
             color: #5d6d7e;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 10px; /* 增加圆角 */
             transition: all 0.3s ease;
             font-weight: 500;
+            font-size: 16px; /* 增加字体大小 */
         }
         
         .nav-menu a i {
-            margin-right: 12px;
-            font-size: 18px;
-            width: 24px;
+            margin-right: 15px; /* 增加图标间距 */
+            font-size: 20px; /* 增加图标大小 */
+            width: 28px; /* 增加图标容器宽度 */
             text-align: center;
         }
         
@@ -89,24 +95,26 @@
             background-color: #3498db;
             color: white;
             font-weight: 600;
+            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
         }
         
         .sidebar-footer {
-            padding: 25px;
+            padding: 30px 35px; /* 增加内边距 */
             margin-top: 40px;
             border-top: 1px solid #eaeaea;
         }
         
         .sidebar-footer p {
             color: #7f8c8d;
-            font-size: 14px;
+            font-size: 15px; /* 增加字体大小 */
             text-align: center;
+            line-height: 1.6;
         }
         
         /* 右侧内容区 */
         .main-content {
             flex: 1;
-            margin-left: 280px;
+            margin-left: 320px; /* 调整左边距以适应更宽的侧边栏 */
             background-color: white;
             min-height: 100vh;
         }
@@ -250,76 +258,14 @@
             transform: translateX(5px);
         }
         
-        /* 右侧边栏（已删除热门标签） */
-        .right-sidebar {
-            width: 300px;
-            background-color: #f8f9fa;
-            border-left: 1px solid #eaeaea;
-            padding: 40px 25px;
-            position: fixed;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            overflow-y: auto;
-        }
-        
-        .widget {
-            margin-bottom: 40px;
-        }
-        
-        .widget-title {
-            font-size: 20px;
-            color: #2c3e50;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-        }
-        
-        .recent-posts {
-            list-style: none;
-        }
-        
-        .recent-posts li {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .recent-posts li:last-child {
-            border-bottom: none;
-        }
-        
-        .recent-posts a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .recent-posts a:hover {
-            color: #3498db;
-        }
-        
-        .recent-date {
-            color: #7f8c8d;
-            font-size: 13px;
-        }
-        
         /* 响应式设计 */
         @media (max-width: 1200px) {
-            .right-sidebar {
-                display: none;
-            }
-        }
-        
-        @media (max-width: 992px) {
             .posts-grid {
                 grid-template-columns: 1fr;
             }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .sidebar {
                 width: 100%;
                 position: relative;
@@ -341,6 +287,28 @@
             
             .posts-container {
                 padding: 30px 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .banner-content h1 {
+                font-size: 28px;
+            }
+            
+            .banner-content p {
+                font-size: 16px;
+            }
+            
+            .post-card {
+                padding: 20px;
+            }
+            
+            .post-title {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
             }
         }
         
@@ -399,7 +367,7 @@
     </style>
 </head>
 <body>
-    <!-- 左侧导览栏 -->
+    <!-- 左侧导览栏 - 拉长版 -->
     <aside class="sidebar">
         <div class="blog-info">
             <h1 class="blog-title">风吹日晓</h1>
@@ -427,7 +395,7 @@
         <div class="banner">
             <div class="banner-overlay">
                 <div class="banner-content">
-                    <h1>欢迎来到首页页面</h1>
+                    <h1>欢迎来到我的个人博客</h1>
                     <p>在这里，我将分享技术见解、生活感悟与学习心得，与你一同探索的世界</p>
                 </div>
             </div>
@@ -509,42 +477,6 @@
             </div>
         </footer>
     </main>
-    
-    <!-- 右侧边栏（已删除热门标签） -->
-    <aside class="right-sidebar">
-        <!-- 最近文章 -->
-        <div class="widget">
-            <h3 class="widget-title">最近文章</h3>
-            <ul class="recent-posts">
-                <li>
-                    <a href="#">动态规划实战：解决经典背包问题</a>
-                    <div class="recent-date">2023年10月10日</div>
-                </li>
-                <li>
-                    <a href="#">保持学习动力的五个有效方法</a>
-                    <div class="recent-date">2023年10月5日</div>
-                </li>
-                <li>
-                    <a href="#">探索CSS Grid布局的无限可能</a>
-                    <div class="recent-date">2023年10月15日</div>
-                </li>
-                <li>
-                    <a href="#">ES2023新特性详解与应用实践</a>
-                    <div class="recent-date">2023年10月12日</div>
-                </li>
-                <li>
-                    <a href="#">现代前端性能优化策略全解析</a>
-                    <div class="recent-date">2023年9月28日</div>
-                </li>
-            </ul>
-        </div>
-        
-        <!-- 关于我 -->
-        <div class="widget">
-            <h3 class="widget-title">关于我</h3>
-            <p>我是风吹日晓，一名热爱技术与生活的开发者。在这里记录我的学习历程与思考，希望能与志同道合的朋友交流分享。</p>
-        </div>
-    </aside>
 
     <script>
         // 简单的交互效果
@@ -568,7 +500,7 @@
                     const bannerTitle = document.querySelector('.banner-content h1');
                     
                     if (pageTitle === "首页") {
-                        bannerTitle.textContent = "欢迎来到首页页面";
+                        bannerTitle.textContent = "欢迎来到我的个人博客";
                     } else {
                         bannerTitle.textContent = `欢迎来到${pageTitle}页面`;
                     }

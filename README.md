@@ -250,7 +250,7 @@
             transform: translateX(5px);
         }
         
-        /* 右侧边栏 */
+        /* 右侧边栏（已删除热门标签） */
         .right-sidebar {
             width: 300px;
             background-color: #f8f9fa;
@@ -273,27 +273,6 @@
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid #3498db;
-        }
-        
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .tag {
-            background-color: #eef5ff;
-            color: #3498db;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 14px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .tag:hover {
-            background-color: #3498db;
-            color: white;
         }
         
         .recent-posts {
@@ -448,8 +427,8 @@
         <div class="banner">
             <div class="banner-overlay">
                 <div class="banner-content">
-                    <h1>欢迎来到我的个人博客</h1>
-                    <p>在这里，我将分享技术见解、生活感悟与学习心得，与你一同探索这个充满可能性的世界</p>
+                    <h1>欢迎来到首页页面</h1>
+                    <p>在这里，我将分享技术见解、生活感悟与学习心得，与你一同探索的世界</p>
                 </div>
             </div>
         </div>
@@ -531,22 +510,9 @@
         </footer>
     </main>
     
-    <!-- 右侧边栏（标签、最近文章等） -->
+    <!-- 右侧边栏（已删除热门标签） -->
     <aside class="right-sidebar">
-        <div class="widget">
-            <h3 class="widget-title">热门标签</h3>
-            <div class="tags">
-                <a href="#" class="tag">JavaScript</a>
-                <a href="#" class="tag">CSS</a>
-                <a href="#" class="tag">算法</a>
-                <a href="#" class="tag">前端开发</a>
-                <a href="#" class="tag">数据结构</a>
-                <a href="#" class="tag">生活随笔</a>
-                <a href="#" class="tag">性能优化</a>
-                <a href="#" class="tag">Web开发</a>
-            </div>
-        </div>
-        
+        <!-- 最近文章 -->
         <div class="widget">
             <h3 class="widget-title">最近文章</h3>
             <ul class="recent-posts">
@@ -573,6 +539,7 @@
             </ul>
         </div>
         
+        <!-- 关于我 -->
         <div class="widget">
             <h3 class="widget-title">关于我</h3>
             <p>我是风吹日晓，一名热爱技术与生活的开发者。在这里记录我的学习历程与思考，希望能与志同道合的朋友交流分享。</p>
@@ -596,9 +563,15 @@
                     // 为当前点击的链接添加active类
                     this.classList.add('active');
                     
-                    // 简单模拟内容切换（在实际项目中，这里可以加载不同的内容）
+                    // 更新横幅标题
                     const pageTitle = this.querySelector('i').nextSibling.textContent.trim();
-                    document.querySelector('.banner-content h1').textContent = `欢迎来到${pageTitle}页面`;
+                    const bannerTitle = document.querySelector('.banner-content h1');
+                    
+                    if (pageTitle === "首页") {
+                        bannerTitle.textContent = "欢迎来到首页页面";
+                    } else {
+                        bannerTitle.textContent = `欢迎来到${pageTitle}页面`;
+                    }
                 });
             });
             

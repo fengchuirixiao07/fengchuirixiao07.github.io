@@ -21,12 +21,12 @@
             min-height: 100vh;
         }
         
-        /* 左侧导览栏 - 拉长版本 */
+        /* 左侧导览栏 - 进一步加长版本 */
         .sidebar {
-            width: 320px; /* 增加宽度 */
+            width: 400px; /* 进一步加宽以遮挡右侧内容 */
             background-color: #f8f9fa;
             border-right: 1px solid #eaeaea;
-            padding: 50px 0; /* 增加上下内边距 */
+            padding: 60px 0;
             position: fixed;
             top: 0;
             left: 0;
@@ -37,13 +37,13 @@
         }
         
         .blog-info {
-            padding: 0 35px; /* 增加左右内边距 */
-            margin-bottom: 60px; /* 增加下边距 */
+            padding: 0 45px;
+            margin-bottom: 80px;
             text-align: center;
         }
         
         .blog-title {
-            font-size: 32px; /* 增加字体大小 */
+            font-size: 38px;
             font-weight: 700;
             color: #2c3e50;
             margin-bottom: 15px;
@@ -51,7 +51,7 @@
         }
         
         .blog-subtitle {
-            font-size: 18px; /* 增加字体大小 */
+            font-size: 22px;
             color: #7f8c8d;
             font-weight: 400;
             line-height: 1.5;
@@ -59,30 +59,30 @@
         
         .nav-menu {
             list-style: none;
-            padding: 0 30px; /* 增加左右内边距 */
+            padding: 0 40px;
             flex-grow: 1;
         }
         
         .nav-menu li {
-            margin-bottom: 10px; /* 增加间距 */
+            margin-bottom: 15px;
         }
         
         .nav-menu a {
             display: flex;
             align-items: center;
-            padding: 18px 25px; /* 增加内边距 */
+            padding: 22px 30px;
             color: #5d6d7e;
             text-decoration: none;
-            border-radius: 10px; /* 增加圆角 */
+            border-radius: 12px;
             transition: all 0.3s ease;
             font-weight: 500;
-            font-size: 16px; /* 增加字体大小 */
+            font-size: 20px;
         }
         
         .nav-menu a i {
-            margin-right: 15px; /* 增加图标间距 */
-            font-size: 20px; /* 增加图标大小 */
-            width: 28px; /* 增加图标容器宽度 */
+            margin-right: 20px;
+            font-size: 24px;
+            width: 32px;
             text-align: center;
         }
         
@@ -99,24 +99,25 @@
         }
         
         .sidebar-footer {
-            padding: 30px 35px; /* 增加内边距 */
-            margin-top: 40px;
+            padding: 40px 45px;
+            margin-top: 60px;
             border-top: 1px solid #eaeaea;
+            text-align: center;
         }
         
         .sidebar-footer p {
             color: #7f8c8d;
-            font-size: 15px; /* 增加字体大小 */
-            text-align: center;
+            font-size: 18px;
             line-height: 1.6;
         }
         
         /* 右侧内容区 */
         .main-content {
             flex: 1;
-            margin-left: 320px; /* 调整左边距以适应更宽的侧边栏 */
+            margin-left: 400px; /* 调整左边距以适应更宽的侧边栏 */
             background-color: white;
             min-height: 100vh;
+            overflow-x: hidden; /* 防止内容溢出 */
         }
         
         /* 顶部横幅 */
@@ -161,7 +162,7 @@
         
         /* 文章列表容器 */
         .posts-container {
-            max-width: 1200px;
+            max-width: 1100px; /* 稍微减小最大宽度以适应更宽的侧边栏 */
             margin: 0 auto;
             padding: 50px 40px;
         }
@@ -174,94 +175,95 @@
             border-bottom: 3px solid #3498db;
         }
         
-        /* 文章网格布局 */
-        .posts-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-        }
-        
-        /* 文章卡片 */
-        .post-card {
+        /* 文章链接卡片 */
+        .post-link-card {
             background-color: #ffffff;
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
             border: 1px solid #f0f0f0;
             transition: all 0.3s ease;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
         }
         
-        .post-card:hover {
+        .post-link-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
         }
         
-        .post-category {
-            display: inline-block;
+        .post-icon {
+            width: 60px;
+            height: 60px;
             background-color: #e8f4fc;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 25px;
             color: #3498db;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
+            font-size: 24px;
+            flex-shrink: 0;
         }
         
-        .post-title {
+        .post-link-content {
+            flex: 1;
+        }
+        
+        .post-link-title {
             font-size: 22px;
             color: #2c3e50;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1.4;
         }
         
-        .post-meta {
+        .post-link-description {
             color: #7f8c8d;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        
+        .post-link-meta {
+            color: #3498db;
             font-size: 14px;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
         }
         
-        .post-meta i {
+        .post-link-meta i {
             margin-right: 8px;
         }
         
-        .post-meta span {
-            margin-right: 20px;
-        }
-        
-        .post-excerpt {
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-        
-        .read-more {
-            display: inline-flex;
-            align-items: center;
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .read-more i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-        
-        .read-more:hover {
-            color: #2c3e50;
-        }
-        
-        .read-more:hover i {
-            transform: translateX(5px);
-        }
-        
         /* 响应式设计 */
+        @media (max-width: 1400px) {
+            .sidebar {
+                width: 380px;
+            }
+            
+            .main-content {
+                margin-left: 380px;
+            }
+            
+            .posts-container {
+                max-width: 1000px;
+            }
+        }
+        
         @media (max-width: 1200px) {
-            .posts-grid {
-                grid-template-columns: 1fr;
+            .sidebar {
+                width: 350px;
+            }
+            
+            .main-content {
+                margin-left: 350px;
+            }
+            
+            .posts-container {
+                max-width: 900px;
             }
         }
         
@@ -287,6 +289,18 @@
             
             .posts-container {
                 padding: 30px 20px;
+                max-width: 100%;
+            }
+            
+            .post-link-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+            }
+            
+            .post-icon {
+                margin-right: 0;
+                margin-bottom: 20px;
             }
         }
         
@@ -299,11 +313,7 @@
                 font-size: 16px;
             }
             
-            .post-card {
-                padding: 20px;
-            }
-            
-            .post-title {
+            .post-link-title {
                 font-size: 20px;
             }
             
@@ -339,7 +349,7 @@
         }
         
         .footer-content {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
@@ -364,10 +374,25 @@
             color: #aaa;
             font-size: 14px;
         }
+        
+        /* 文章访问提示 */
+        .access-note {
+            background-color: #f9f9f9;
+            border-left: 4px solid #3498db;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .access-note p {
+            color: #666;
+            font-size: 15px;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
-    <!-- 左侧导览栏 - 拉长版 -->
+    <!-- 左侧导览栏 - 进一步加长版 -->
     <aside class="sidebar">
         <div class="blog-info">
             <h1 class="blog-title">风吹日晓</h1>
@@ -375,17 +400,18 @@
         </div>
         
         <ul class="nav-menu">
-            <li><a href="#" class="active"><i class="fas fa-home"></i> 首页</a></li>
+            <li><a href="#"><i class="fas fa-home"></i> 首页</a></li>
             <li><a href="#"><i class="fas fa-pen"></i> 文章</a></li>
             <li><a href="#"><i class="fas fa-folder"></i> 分类</a></li>
             <li><a href="#"><i class="fas fa-user"></i> 关于</a></li>
             <li><a href="#"><i class="fas fa-envelope"></i> 联系</a></li>
-            <li><a href="#"><i class="fas fa-search"></i> 搜索</a></li>
+            <li><a href="#" class="active"><i class="fas fa-search"></i> 搜索</a></li>
         </ul>
         
         <div class="sidebar-footer">
             <p>© 2023 风吹日晓的个人博客</p>
             <p>记录思考，分享知识</p>
+            <!-- 已删除蓝色"07"标识 -->
         </div>
     </aside>
     
@@ -395,7 +421,7 @@
         <div class="banner">
             <div class="banner-overlay">
                 <div class="banner-content">
-                    <h1>欢迎来到我的个人博客</h1>
+                    <h1>欢迎来到搜索页面</h1>
                     <p>在这里，我将分享技术见解、生活感悟与学习心得，与你一同探索的世界</p>
                 </div>
             </div>
@@ -405,72 +431,46 @@
         <div class="posts-container">
             <h2 class="section-title">最新文章</h2>
             
-            <div class="posts-grid">
-                <!-- 左栏文章1 -->
-                <article class="post-card">
-                    <span class="post-category">算法与数据结构</span>
-                    <h3 class="post-title">动态规划实战：解决经典背包问题</h3>
-                    <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年10月10日</span>
-                        <span><i class="far fa-eye"></i> 1.8k浏览</span>
-                    </div>
-                    <p class="post-excerpt">
-                        动态规划是解决优化问题的强大技术。本文通过经典的0-1背包问题，详细讲解动态规划的核心思想、状态转移方程的建立，以及如何将算法应用到实际问题中。
-                    </p>
-                    <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
-                </article>
-                
-                <!-- 右栏文章1 -->
-                <article class="post-card">
-                    <span class="post-category">生活随笔</span>
-                    <h3 class="post-title">保持学习动力的五个有效方法</h3>
-                    <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年10月5日</span>
-                        <span><i class="far fa-eye"></i> 1.5k浏览</span>
-                    </div>
-                    <p class="post-excerpt">
-                        在漫长而曲折的学习道路上，保持动力是一个永恒的话题。通过多年的学习经验，我总结了五个有效的方法，帮助我在技术快速迭代的时代保持持续学习和进步的热情。
-                    </p>
-                    <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
-                </article>
-                
-                <!-- 左栏文章2 -->
-                <article class="post-card">
-                    <span class="post-category">前端开发</span>
-                    <h3 class="post-title">探索CSS Grid布局的无限可能</h3>
-                    <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年10月15日</span>
-                        <span><i class="far fa-eye"></i> 2.1k浏览</span>
-                    </div>
-                    <p class="post-excerpt">
-                        CSS Grid布局是现代网页设计的强大工具。通过灵活的网格系统，我们可以创建复杂且响应式的布局，而无需依赖外部框架。本文将深入探讨Grid的高级用法和实际案例。
-                    </p>
-                    <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
-                </article>
-                
-                <!-- 右栏文章2 -->
-                <article class="post-card">
-                    <span class="post-category">JavaScript</span>
-                    <h3 class="post-title">ES2023新特性详解与应用实践</h3>
-                    <div class="post-meta">
-                        <span><i class="far fa-calendar"></i> 2023年10月12日</span>
-                        <span><i class="far fa-eye"></i> 2.5k浏览</span>
-                    </div>
-                    <p class="post-excerpt">
-                        每年ECMAScript都会带来新的语言特性，ES2023也不例外。从数组查找方法到符号作为WeakMap键，这些新特性让JavaScript更加强大和易用。让我们一起来看看这些新特性如何提升开发效率。
-                    </p>
-                    <a href="#" class="read-more">阅读全文 <i class="fas fa-arrow-right"></i></a>
-                </article>
+            <div class="access-note">
+                <p><i class="fas fa-info-circle"></i> 提示：以下文章为Markdown格式，点击卡片将在GitHub中查看完整内容</p>
             </div>
+            
+            <!-- 第一篇文章链接 -->
+            <a href="https://github.com/fengchuirixiao07/fengchuirixiao07.github.io/blob/main/basic%20crypto" target="_blank" class="post-link-card">
+                <div class="post-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="post-link-content">
+                    <h3 class="post-link-title">start basic crypto</h3>
+                    <p class="post-link-description">这篇文档系统性地介绍了基础密码学知识，涵盖RSA加密原理、共享素数攻击、中国剩余定理、小明文攻击、费马小定理及其应用、dp泄露攻击、线性同余生成器(LCG)以及椭圆曲线数字签名算法(ECDSA)等内容。</p>
+                    <div class="post-link-meta">
+                        <i class="fas fa-external-link-alt"></i> 点击访问完整文章 (Markdown格式)
+                    </div>
+                </div>
+            </a>
+            
+            <!-- 第二篇文章链接 -->
+            <a href="https://github.com/fengchuirixiao07/fengchuirixiao07.github.io/blob/main/three%20week" target="_blank" class="post-link-card">
+                <div class="post-icon">
+                    <i class="fas fa-calendar-week"></i>
+                </div>
+                <div class="post-link-content">
+                    <h3 class="post-link-title">第三周周报</h3>
+                    <p class="post-link-description">这是第三周的学习周报，记录了本周的学习进展、技术实践、遇到的问题及解决方案，以及对下一周学习计划的安排。</p>
+                    <div class="post-link-meta">
+                        <i class="fas fa-external-link-alt"></i> 点击访问完整文章 (Markdown格式)
+                    </div>
+                </div>
+            </a>
         </div>
         
         <!-- 页脚 -->
         <footer class="footer">
             <div class="footer-content">
                 <div class="footer-links">
+                    <a href="https://github.com/fengchuirixiao07" target="_blank">GitHub</a>
                     <a href="#">关于本站</a>
                     <a href="#">友情链接</a>
-                    <a href="#">隐私政策</a>
                     <a href="#">版权声明</a>
                 </div>
                 <p class="copyright">© 2023 风吹日晓的个人博客 | 保留所有权利</p>
@@ -486,8 +486,10 @@
             
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    // 阻止默认跳转行为（因为是单页示例）
-                    e.preventDefault();
+                    // 阻止默认跳转行为（除了外部链接）
+                    if (!this.getAttribute('href').startsWith('http')) {
+                        e.preventDefault();
+                    }
                     
                     // 移除所有active类
                     navLinks.forEach(item => item.classList.remove('active'));
@@ -507,8 +509,8 @@
                 });
             });
             
-            // 文章卡片动画效果
-            const postCards = document.querySelectorAll('.post-card');
+            // 文章链接卡片动画效果
+            const postCards = document.querySelectorAll('.post-link-card');
             postCards.forEach((card, index) => {
                 card.style.opacity = '0';
                 card.style.transform = 'translateY(20px)';
@@ -527,6 +529,15 @@
             setTimeout(() => {
                 document.body.style.opacity = '1';
             }, 100);
+            
+            // 为新标签页打开添加提示
+            const externalLinks = document.querySelectorAll('a[target="_blank"]');
+            externalLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // 允许链接正常跳转
+                    console.log(`正在打开: ${this.href}`);
+                });
+            });
         });
     </script>
 </body>
